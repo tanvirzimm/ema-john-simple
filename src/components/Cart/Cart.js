@@ -1,7 +1,9 @@
 import React from 'react';
 
+
 const Cart = (props) => {
-const totalPrice = props.cart.reduce((total,pd) => total+pd.price,0);
+
+const totalPrice = props.cart.reduce((total,pd) => total+pd.price*pd.quantity,0);
 
 const tax = totalPrice /10;
 let ship = 0;
@@ -24,6 +26,9 @@ function getNumber(num){
             <h4>Tax + Vat :{getNumber(tax)}</h4>
     <h4>Shipping cost : {ship}</h4>
     <h4>Grand  total : {getNumber(totalPrice+ship+tax)}</h4>
+    {
+        props.children
+    }
         </div>
     );
 };
