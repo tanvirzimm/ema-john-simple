@@ -13,7 +13,8 @@ import Inventory from './components/Inventory/Inventory';
 import NotFound from './components/NotFoud/NotFound';
 import ProductDetails from './components/ProductDetails/ProductDetails';
 import Login from './components/Login/Login';
-import { AuthContextProvider } from './components/Login/useAuth';
+import { AuthContextProvider, PrivateRoute } from './components/Login/useAuth';
+import Shipment from './components/Shipment/Shipment';
 
  
 
@@ -45,6 +46,9 @@ function App() {
            <Route path='/login'>
               <Login></Login>
            </Route>
+           <PrivateRoute path ='/shipment'>
+             <Shipment></Shipment>
+           </PrivateRoute>
            <Route path='*'>
                 <NotFound></NotFound>
            </Route>

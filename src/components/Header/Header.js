@@ -20,7 +20,7 @@ const Header = () => {
     // const previous = usePrevious(count);
     const auth = useAuth();
     console.log(auth.user);
-    console.log(auth.user.name);
+    console.log(auth.user && auth.user.name);
     
     
     
@@ -37,7 +37,15 @@ const Header = () => {
                 <Link to="/shop">Shop</Link>        
                 <Link to="/review">review</Link>
                 <Link to="/inventory">Manage Inventory here</Link>
-                <span style={{color:'yellow'}}>{}</span>
+                {
+                    auth.user && <span style={{color:'yellow'}}>{ auth.user.name}</span>
+                    
+                }
+                {
+                     auth.user ? <a href="/login">Sign Out</a>:
+                    <a href="/login">Sign in</a>
+                }
+                
             </nav>
         </div>
     );
